@@ -1,13 +1,18 @@
 import React from "react";
 import Card from "./Card.js";
 
-const CardList = props => {
+const CardList = ({ players, images }) => {
   return (
-    <section className="cardlist">
-      {props.data.map(cv => {
-        return <Card data={cv} key={cv.id} />;
-      })}
-    </section>
+    <div>
+      {players.map(player => (
+        <Card
+          key={player.id}
+          name={player.name}
+          country={player.country}
+          searches={player.searches}
+        />
+      ))}
+    </div>
   );
 };
 

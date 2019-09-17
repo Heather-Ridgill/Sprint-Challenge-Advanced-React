@@ -1,21 +1,19 @@
 import React from "react";
-import "./App.css";
-import axios from "axios";
+import "./App.scss";
+import Axios from "axios";
+
+//Components
 import Navbar from "./components/NavBar";
 import CardList from "./components/CardList";
-import Card from "./components/Card";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {}
-    };
-  }
+  state = {
+    data: [],
+    images: []
+  };
 
   componentDidMount() {
-    axios
-      .get("http://localhost:5000/api/players")
+    Axios.get("http://localhost:5000/api/players")
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -23,21 +21,14 @@ class App extends React.Component {
         console.log("Error: ", err);
       });
   }
-
   render() {
     return (
-      <section className="container">
+      <section className="App">
         <Navbar />
         <header>
           <h1>Women's World Cup</h1>
-          <h2>
-            Ranked by search interest from{" "}
-            <a href="https://trends.google.com/trends/" target="blank">
-              Google Trends
-            </a>
-          </h2>
+          <CardList players={this.state.data} images={this.state.images} />
         </header>
-        <CardList data={this.state.data} />
       </section>
     );
   }

@@ -9,20 +9,7 @@ const Navbar = () => {
   };
   return (
     <nav className="navbar">
-      <div>
-        Icons made by{" "}
-        <a
-          href="https://www.flaticon.com/authors/papedesign"
-          title="Papedesign"
-        >
-          Papedesign
-        </a>{" "}
-        from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-      </div>
-      <h1>Crypto Tracker</h1>
+      {/* <h1>Crypto Tracker</h1> */}
       <div className="dark-mode__toggle">
         <button
           onClick={toggleMode}

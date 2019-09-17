@@ -1,13 +1,24 @@
 import React from "react";
+import { Card, Image } from "semantic-ui-react";
 
-const Card = props => {
+const PlayerCard = props => {
   return (
-    <div className="card">
-      <h1>{props.data.name}</h1>
-      <h2>{props.data.country}</h2>
-      <p>Number of times searched: {props.data.searches}</p>
-    </div>
+    <Card centered={true}>
+      {/* <div className="card"> */}
+      <Card.Content>
+        <Card.Header>
+          <h1>{props.name}</h1>
+        </Card.Header>
+        <Card.Meta>
+          <h2>{props.country}</h2>
+        </Card.Meta>
+        <Card.Description>
+          <p>Number of times searched: {props.searches}</p>
+        </Card.Description>
+      </Card.Content>
+      {/* </div> */}
+    </Card>
   );
 };
 
-export default Card;
+export default PlayerCard;
